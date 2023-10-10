@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const VehicleListItemWrapper = styled.li`
-  width: 300px;
+  width: 400px;
   display: flex;
   justify-content: center;
   margin-bottom: 20px;

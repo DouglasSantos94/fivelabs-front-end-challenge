@@ -1,5 +1,6 @@
 import { AddToCartButton } from "../../../components/Button/styles";
 import { VehicleCard } from "../../../components/Card/styles";
+import { Paragraph, Title } from "../../../components/Text";
 import { IVehicle } from "../../../types/Vehicle";
 import { SeeDetailsButton, VehicleActions, VehicleInfo, VehicleListItemWrapper } from "./styles";
 
@@ -16,9 +17,9 @@ export default function VehicleListItem({
     <VehicleListItemWrapper>
       <VehicleCard>
         <VehicleInfo>
-          <p style={{ fontSize: "36px" }}>{name}</p>
-          <p style={{ fontSize: "24px" }}>{model}</p>
-          <p style={{ fontSize: "20px" }}>{costInCredits}</p>
+          <Title>{name}</Title>
+          <Paragraph>{model}</Paragraph>
+          <Paragraph>{costInCredits}</Paragraph>
         </VehicleInfo>
 
         <VehicleActions>
