@@ -8,8 +8,10 @@ interface IVehicleListItemProps {
 }
 
 export default function VehicleListItem({
-  vehicle: { name, model, cost_in_credits: costInCredits }
+  vehicle: { name, model, cost_in_credits: costInCredits, url }
 }: IVehicleListItemProps) {
+  const id = url.charAt(url.length - 2);
+
   return (
     <VehicleListItemWrapper>
       <VehicleCard>
@@ -20,7 +22,7 @@ export default function VehicleListItem({
         </VehicleInfo>
 
         <VehicleActions>
-          <SeeDetailsButton>Ver detalhes</SeeDetailsButton>
+          <SeeDetailsButton to={`/detail/${id}`}>Ver detalhes</SeeDetailsButton>
           <AddToCartButton>Adicionar ao carrinho</AddToCartButton>
         </VehicleActions>
       </VehicleCard>

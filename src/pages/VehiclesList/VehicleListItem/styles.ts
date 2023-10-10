@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const VehicleListItemWrapper = styled.li`
-  width: 90%;
+  width: 300px;
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
@@ -26,7 +27,7 @@ export const VehicleActions = styled.div`
   align-items: center;
 `;
 
-export const SeeDetailsButton = styled.a`
+export const SeeDetailsButton = styled(Link)`
   color: white;
   font-size: 16px;
   text-decoration: underline;
