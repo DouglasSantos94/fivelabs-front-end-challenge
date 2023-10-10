@@ -4,7 +4,7 @@ export interface IVehicle {
   vehicle_class: string;
   manufacturer: string;
   length: string;
-  cost_in_credits: number;
+  cost_in_credits: string;
   crew: string;
   passengers: string;
   max_atmosphering_speed: string;
