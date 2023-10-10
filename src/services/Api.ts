@@ -10,3 +10,7 @@ const Api = axios.create({
 export const getVehicles = (): Promise<AxiosResponse> => {
   return Api.get("/vehicles/");
 };
+
+export const getVehicle = (id: string): Promise<AxiosResponse> => {
+  return Api.get(`/vehicles/${id}`);
+};
