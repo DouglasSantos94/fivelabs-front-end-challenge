@@ -4,6 +4,7 @@ export const VehicleListItemWrapper = styled.li`
   width: 90%;
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
 `;
 
 export const VehicleInfo = styled.div`
