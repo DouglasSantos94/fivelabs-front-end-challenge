@@ -6,4 +6,11 @@ export const VehiclesListWrapper = styled.ul`
   flex-direction: column;
   align-items: center;
   margin-top: 50px;
+
+  @media screen and (min-width: 500px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-evenly;
+  }
 `;
