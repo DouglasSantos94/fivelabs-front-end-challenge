@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
 import { getVehicles } from "../services/Api";
+import { IVehicle } from "../types/Vehicle";
 
 export const useVehicles = () => {
-  const [vehicles, setVehicles] = useState<Vehicle[]>();
+  const [vehicles, setVehicles] = useState<IVehicle[]>();
   const [error, setError] = useState<Error | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
