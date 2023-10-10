@@ -4,10 +4,16 @@ const Card = styled.div`
   background-color: #5b6066;
   border-radius: 6px;
   padding: 20px 0;
+  color: white;
 `;
 
 export const VehicleCard = styled(Card)`
-  width: 100%;
   height: 300px;
-  color: white;
+  width: 100%;
+`;
+
+export const VehicleDetailCard = styled(Card)`
+  width: 90%;
+  text-align: center;
+  margin: auto;
 `;
