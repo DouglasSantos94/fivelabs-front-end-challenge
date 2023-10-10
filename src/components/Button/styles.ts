@@ -8,3 +8,10 @@ const Button = styled.button`
 export const SearchButton = styled(Button)`
   background-color: "#3A3F44";
 `;
+
+export const AddToCartButton = styled(Button)`
+  height: 50px;
+  background-color: #1e1e1e;
+  color: white;
+  font-size: 16px;
+`;
