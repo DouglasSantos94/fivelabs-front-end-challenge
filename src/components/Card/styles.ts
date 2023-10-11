@@ -17,3 +17,7 @@ export const VehicleDetailCard = styled(Card)`
   text-align: center;
   margin: auto;
 `;
+
+export const CartCard = styled(Card)`
+  width: 400px;
+`;
