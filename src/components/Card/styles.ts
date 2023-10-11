@@ -26,3 +26,5 @@ export const CartCard = styled(Card)`
 `;
 
 export const SummaryCard = styled(CartCard)``;
+
+export const PaymentFormCard = styled(CartCard)``;
