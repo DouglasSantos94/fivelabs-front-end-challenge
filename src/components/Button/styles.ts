@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Button = styled.button`
@@ -17,9 +18,19 @@ export const AddToCartButton = styled(Button)`
 `;
 
 export const RemoveFromCartButton = styled(Button)`
-  width: 100px;
-  height: 40px;
+  padding: 5px;
   background-color: #1e1e1e;
   color: white;
   font-size: 14px;
+`;
+
+export const BuyButton = styled(Link)`
+  display: inline-block;
+  background-color: #1e1e1e;
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 15px;
+  border-radius: 4px;
+  margin-top: 50px;
 `;
