@@ -1,3 +1,3 @@
-import { FormItemWrapper } from "./styles";
+import { FormItem, SmallFormItem, MediumFormItem } from "./styles";
 
-export { FormItemWrapper as FormItem };
+export { FormItem, SmallFormItem, MediumFormItem };

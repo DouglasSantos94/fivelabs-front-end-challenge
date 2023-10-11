@@ -1,12 +1,13 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, ErrorMessage } from "formik";
 import { PaymentFormCard } from "../../components/Card";
 import { Paragraph, Title } from "../../components/Text";
 import { PaymentFormWrapper } from "./styles";
 import { formSchema } from "../../schemas/formSchema";
 import { FormDividerWrapper } from "../../components/FormDivider";
-import { FormItem } from "../../components/FormItem";
-import { SearchButton } from "../../components/Button";
+import { FormItem, MediumFormItem, SmallFormItem } from "../../components/FormItem";
+import { FinishButton, SearchButton } from "../../components/Button";
 import { Label } from "../../components/Label";
+import { FormInput, SmallFormInput } from "../../components/Input";
 
 const initialValues = {
   name: "",
@@ -41,96 +42,97 @@ export default function PaymentForm() {
             <FormDividerWrapper>
               <FormItem>
                 <Label htmlFor="name">Nome:</Label>
-                <Field type="text" id="name" name="name" />
+                <FormInput type="text" id="name" name="name" />
                 <ErrorMessage name="name" component="div" />
               </FormItem>
               <FormItem>
                 <Label htmlFor="cpf">CPF:</Label>
-                <Field type="text" id="cpf" name="cpf" />
+                <FormInput type="text" id="cpf" name="cpf" />
                 <ErrorMessage name="cpf" component="div" />
               </FormItem>
             </FormDividerWrapper>
             <FormDividerWrapper>
               <FormItem>
                 <Label htmlFor="phoneNumber">Telefone:</Label>
-                <Field type="text" id="phoneNumber" name="phoneNumber" />
+                <FormInput type="text" id="phoneNumber" name="phoneNumber" />
                 <ErrorMessage name="phoneNumber" component="div" />
               </FormItem>
               <FormItem>
                 <Label htmlFor="email">E-mail:</Label>
-                <Field type="email" id="email" name="email" />
+                <FormInput type="email" id="email" name="email" />
                 <ErrorMessage name="email" component="div" />
               </FormItem>
             </FormDividerWrapper>
-            <FormDividerWrapper>
-              <FormItem>
+            <FormDividerWrapper style={{ justifyContent: "space-around" }}>
+              <SmallFormItem>
                 <Label htmlFor="zipCode">CEP</Label>
-                <Field type="text" id="zipCode" name="zipCode" />
+                <FormInput type="text" id="zipCode" name="zipCode" />
                 <ErrorMessage name="zipCode" component="div" />
-              </FormItem>
+              </SmallFormItem>
               <SearchButton>Buscar</SearchButton>
             </FormDividerWrapper>
             <FormDividerWrapper>
               <FormItem>
                 <Label htmlFor="street">Rua</Label>
-                <Field type="text" id="street" name="street" />
+                <FormInput type="text" id="street" name="street" />
                 <ErrorMessage name="street" component="div" />
               </FormItem>
             </FormDividerWrapper>
             <FormDividerWrapper>
-              <FormItem>
+              <SmallFormItem>
                 <Label htmlFor="number">Nº</Label>
-                <Field type="text" id="number" name="number" />
+                <SmallFormInput type="text" id="number" name="number" />
                 <ErrorMessage name="number" component="div" />
-              </FormItem>
-              <FormItem>
-                <Label htmlFor="complement">Complemento</Label>
-                <Field type="text" id="complement" name="complement" />
+              </SmallFormItem>
+              <MediumFormItem>
+                <Label htmlFor="complement">Compl.</Label>
+                <FormInput type="text" id="complement" name="complement" />
                 <ErrorMessage name="complement" component="div" />
-              </FormItem>
+              </MediumFormItem>
             </FormDividerWrapper>
             <FormDividerWrapper>
               <FormItem>
                 <Label htmlFor="neighborhood">Bairro</Label>
-                <Field type="text" id="neighborhood" name="neighborhood" />
+                <FormInput type="text" id="neighborhood" name="neighborhood" />
                 <ErrorMessage name="neighborhood" component="div" />
               </FormItem>
-              <FormItem>
-                <Label htmlFor="city">Complemento</Label>
-                <Field type="text" id="city" name="city" />
+              <MediumFormItem>
+                <Label htmlFor="city">Cidade</Label>
+                <FormInput type="text" id="city" name="city" />
                 <ErrorMessage name="city" component="div" />
-              </FormItem>
-              <FormItem>
+              </MediumFormItem>
+              <SmallFormItem>
                 <Label htmlFor="state">Estado</Label>
-                <Field type="text" id="state" name="state" />
+                <SmallFormInput type="text" id="state" name="state" />
                 <ErrorMessage name="state" component="div" />
-              </FormItem>
+              </SmallFormItem>
             </FormDividerWrapper>
             <Paragraph>Dados de pagamento</Paragraph>
             <FormDividerWrapper>
               <FormItem>
                 <Label htmlFor="cardNumber">Nº do cartão</Label>
-                <Field type="text" id="cardNumber" name="cardNumber" />
+                <FormInput type="text" id="cardNumber" name="cardNumber" />
                 <ErrorMessage name="cardNumber" component="div" />
               </FormItem>
               <FormItem>
                 <Label htmlFor="owner">Titular</Label>
-                <Field type="text" id="owner" name="owner" />
+                <FormInput type="text" id="owner" name="owner" />
                 <ErrorMessage name="owner" component="div" />
               </FormItem>
             </FormDividerWrapper>
             <FormDividerWrapper>
-              <FormItem>
+              <SmallFormItem>
                 <Label htmlFor="valid">Validade</Label>
-                <Field type="text" id="valid" name="valid" />
+                <SmallFormInput type="text" id="valid" name="valid" />
                 <ErrorMessage name="valid" component="div" />
-              </FormItem>
-              <FormItem>
+              </SmallFormItem>
+              <SmallFormItem>
                 <Label htmlFor="code">CVV</Label>
-                <Field type="text" id="code" name="code" />
+                <SmallFormInput type="text" id="code" name="code" />
                 <ErrorMessage name="code" component="div" />
-              </FormItem>
+              </SmallFormItem>
             </FormDividerWrapper>
+            <FinishButton to={"/summary"}>Finalizar compra</FinishButton>
           </Form>
         </Formik>
       </PaymentFormCard>
