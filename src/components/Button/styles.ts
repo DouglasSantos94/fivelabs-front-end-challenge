@@ -15,3 +15,11 @@ export const AddToCartButton = styled(Button)`
   color: white;
   font-size: 16px;
 `;
+
+export const RemoveFromCartButton = styled(Button)`
+  width: 100px;
+  height: 40px;
+  background-color: #1e1e1e;
+  color: white;
+  font-size: 14px;
+`;

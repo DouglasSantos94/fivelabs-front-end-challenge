@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const CartButtonWrapper = styled.button`
+export const CartButtonWrapper = styled(Link)`
   background-color: #3a3f44;
   border: none;
 `;
