@@ -1,3 +1,3 @@
-import { Title, Paragraph } from "./styles";
+import { Title, Paragraph, SmallParagraph } from "./styles";
 
-export { Title, Paragraph };
+export { Title, Paragraph, SmallParagraph };

@@ -9,3 +9,7 @@ export const Paragraph = styled.p`
   font-size: 20px;
   margin-bottom: 10px;
 `;
+
+export const SmallParagraph = styled.p`
+  font-size: 12px;
+`;
