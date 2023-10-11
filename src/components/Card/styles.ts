@@ -24,3 +24,5 @@ export const CartCard = styled(Card)`
   flex-direction: column;
   align-items: center;
 `;
+
+export const SummaryCard = styled(CartCard)``;

@@ -1,3 +1,3 @@
-import { VehicleCard, VehicleDetailCard, CartCard } from "./styles";
+import { VehicleCard, VehicleDetailCard, CartCard, SummaryCard } from "./styles";
 
-export { VehicleCard, VehicleDetailCard, CartCard };
+export { VehicleCard, VehicleDetailCard, CartCard, SummaryCard };
