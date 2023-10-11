@@ -8,8 +8,9 @@ import { FormItem, MediumFormItem, SmallFormItem } from "../../components/FormIt
 import { FinishButton, SearchAddressButton } from "../../components/Button";
 import { Label } from "../../components/Label";
 import { FormInput, SmallFormInput } from "../../components/Input";
+import { Buyer } from "../../types/Buyer";
 
-const initialValues = {
+const initialValues: Buyer = {
   name: "",
   email: "",
   phoneNumber: "",
