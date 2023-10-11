@@ -13,8 +13,9 @@ export const SearchInputWrapper = styled(InputWrapper)`
 export const FormInput = styled(Field)`
   border-radius: 4px;
   border: none;
-  width: 65%;
+  width: 80%;
   padding: 5px;
+  margin-left: 20px;
 `;
 
 export const SmallFormInput = styled(FormInput)`

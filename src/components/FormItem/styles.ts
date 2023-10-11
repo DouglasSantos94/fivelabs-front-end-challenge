@@ -4,20 +4,23 @@ export const FormItem = styled.div`
   width: 100%;
   height: 50px;
   padding: 0 15px;
+  box-sizing: border-box;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 
   @media screen and (min-width: 720px) {
-    justify-content: space-around;
+    width: 50%;
   }
 `;
 
 export const MediumFormItem = styled(FormItem)`
   width: 50%;
+  justify-content: center;
 `;
 
 export const SmallFormItem = styled(FormItem)`
-  width: 35%;
-  justify-content: space-around;
+  width: 40%;
+  justify-content: center;
 `;
