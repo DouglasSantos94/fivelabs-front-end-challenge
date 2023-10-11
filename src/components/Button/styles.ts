@@ -6,8 +6,9 @@ const Button = styled.button`
   border: none;
 `;
 
-export const SearchButton = styled(Button)`
-  background-color: "#3A3F44";
+export const SearchItemsButton = styled(Button)`
+  background-color: #3a3f44;
+  padding: 5px;
 `;
 
 export const AddToCartButton = styled(Button)`
@@ -33,6 +34,12 @@ export const BuyButton = styled(Link)`
   padding: 15px;
   border-radius: 4px;
   margin-top: 50px;
+`;
+
+export const SearchAddressButton = styled(Button)`
+  background-color: #1e1e1e;
+  padding: 8px;
+  color: white;
 `;
 
 export const FinishButton = styled(BuyButton)``;

@@ -1,3 +1,10 @@
-import { SearchButton, AddToCartButton, RemoveFromCartButton, BuyButton, FinishButton } from "./styles";
+import {
+  SearchItemsButton,
+  SearchAddressButton,
+  AddToCartButton,
+  RemoveFromCartButton,
+  BuyButton,
+  FinishButton
+} from "./styles";
 
-export { SearchButton, AddToCartButton, RemoveFromCartButton, BuyButton, FinishButton };
+export { SearchItemsButton, SearchAddressButton, AddToCartButton, RemoveFromCartButton, BuyButton, FinishButton };
