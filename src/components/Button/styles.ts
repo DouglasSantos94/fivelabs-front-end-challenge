@@ -34,3 +34,5 @@ export const BuyButton = styled(Link)`
   border-radius: 4px;
   margin-top: 50px;
 `;
+
+export const FinishButton = styled(BuyButton)``;
