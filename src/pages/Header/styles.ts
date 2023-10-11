@@ -11,7 +11,7 @@ export const HeaderWrapper = styled.header`
   background-color: #3a3f44;
 `;
 
-export const Title = styled.h1`
+export const HeaderTitle = styled.h1`
   font-size: 20px;
   font-weight: bold;
   color: white;

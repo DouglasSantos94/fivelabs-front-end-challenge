@@ -1,10 +1,10 @@
 import CartButton from "../../components/CartButton";
-import { HeaderWrapper, Title } from "./styles";
+import { HeaderWrapper, HeaderTitle } from "./styles";
 
 export default function Header() {
   return (
     <HeaderWrapper>
-      <Title>Star Wars Vehicles</Title>
+      <HeaderTitle>Star Wars Vehicles</HeaderTitle>
       <CartButton />
     </HeaderWrapper>
   );
