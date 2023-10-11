@@ -4,6 +4,7 @@ import { Title } from "../../components/Text";
 import CartItem from "./CartItem";
 import { CartItemsWrapper, CartWrapper } from "./styles";
 import { BuyButton } from "../../components/Button";
+import { ItemsWrapper } from "../../components/ItemsWrapper";
 
 export default function Cart() {
   return (
@@ -11,11 +12,11 @@ export default function Cart() {
       <Link to={"/"}>Voltar</Link>
 
       <CartCard>
-        <CartItemsWrapper>
+        <ItemsWrapper>
           <Title>Carrinho</Title>
           <CartItem />
           <CartItem />
-        </CartItemsWrapper>
+        </ItemsWrapper>
         <BuyButton to={"/form"}>Finalizar compra</BuyButton>
       </CartCard>
     </CartWrapper>
