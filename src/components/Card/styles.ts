@@ -19,5 +19,8 @@ export const VehicleDetailCard = styled(Card)`
 `;
 
 export const CartCard = styled(Card)`
-  width: 400px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
