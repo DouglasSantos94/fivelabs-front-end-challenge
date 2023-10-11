@@ -1,3 +1,3 @@
-import { FormDividerWrapper } from "./styles";
+import { FormDividerWrapper, SmallFormDividerWrapper } from "./styles";
 
-export { FormDividerWrapper };
+export { FormDividerWrapper, SmallFormDividerWrapper };
