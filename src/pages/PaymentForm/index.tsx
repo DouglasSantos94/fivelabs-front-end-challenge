@@ -3,9 +3,9 @@ import { PaymentFormCard } from "../../components/Card";
 import { Paragraph, Title } from "../../components/Text";
 import { PaymentFormWrapper } from "./styles";
 import { formSchema } from "../../schemas/formSchema";
-import { FormDividerWrapper } from "../../components/FormDivider";
+import { FormDividerWrapper, SmallFormDividerWrapper } from "../../components/FormDivider";
 import { FormItem, MediumFormItem, SmallFormItem } from "../../components/FormItem";
-import { FinishButton, SearchButton } from "../../components/Button";
+import { FinishButton, SearchAddressButton } from "../../components/Button";
 import { Label } from "../../components/Label";
 import { FormInput, SmallFormInput } from "../../components/Input";
 
@@ -63,22 +63,20 @@ export default function PaymentForm() {
                 <ErrorMessage name="email" component="div" />
               </FormItem>
             </FormDividerWrapper>
-            <FormDividerWrapper style={{ justifyContent: "space-around" }}>
+            <SmallFormDividerWrapper>
               <SmallFormItem>
                 <Label htmlFor="zipCode">CEP</Label>
                 <FormInput type="text" id="zipCode" name="zipCode" />
                 <ErrorMessage name="zipCode" component="div" />
               </SmallFormItem>
-              <SearchButton>Buscar</SearchButton>
-            </FormDividerWrapper>
+              <SearchAddressButton>Buscar</SearchAddressButton>
+            </SmallFormDividerWrapper>
             <FormDividerWrapper>
               <FormItem>
                 <Label htmlFor="street">Rua</Label>
                 <FormInput type="text" id="street" name="street" />
                 <ErrorMessage name="street" component="div" />
               </FormItem>
-            </FormDividerWrapper>
-            <FormDividerWrapper>
               <SmallFormItem>
                 <Label htmlFor="number">Nº</Label>
                 <SmallFormInput type="text" id="number" name="number" />

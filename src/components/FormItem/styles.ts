@@ -7,6 +7,10 @@ export const FormItem = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media screen and (min-width: 720px) {
+    justify-content: space-around;
+  }
 `;
 
 export const MediumFormItem = styled(FormItem)`
