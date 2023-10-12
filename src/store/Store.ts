@@ -1,4 +1,4 @@
-import { makeObservable, observable, action } from "mobx";
+import { makeObservable, observable, action, makeAutoObservable } from "mobx";
 import { CartItemProps } from "../types/Vehicle";
 
 type Cart = {
@@ -13,7 +13,7 @@ class Store {
   };
 
   constructor(cart) {
-    makeObservable(this, {
+    makeAutoObservable(this, {
       cart: observable,
       addToCart: action,
       removeFromCart: action,
@@ -30,8 +30,8 @@ class Store {
     this.increaseAmount(product);
   }
 
-  removeFromCart(product: CartItemProps) {
-    this.cart.products.filter(cartProduct => cartProduct.product.name !== product.product.name);
+  removeFromCart(id: string) {
+    this.cart.products = this.cart.products.filter(cartProduct => cartProduct.id !== id);
   }
 }
 
