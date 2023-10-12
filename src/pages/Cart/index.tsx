@@ -6,7 +6,7 @@ import { CartWrapper } from "./styles";
 import { BuyButton } from "../../components/Button";
 import { ItemsWrapper } from "../../components/ItemsWrapper";
 import { useStore } from "../../hooks/useStore";
-import { CartItemProps, IVehicle } from "../../types/Vehicle";
+import { CartItemProps } from "../../types/Vehicle";
 import { observer } from "mobx-react-lite";
 
 const Cart = observer(() => {
