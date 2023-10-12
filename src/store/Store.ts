@@ -1,9 +1,9 @@
 import { makeObservable, observable, action } from "mobx";
-import { IVehicle } from "../types/Vehicle";
+import { CartItemProps } from "../types/Vehicle";
 
 type Cart = {
   amount: number;
-  products: IVehicle[];
+  products: CartItemProps[];
 };
 
 class Store {
@@ -21,17 +21,17 @@ class Store {
     });
   }
 
-  increaseAmount(product: IVehicle) {
-    this.cart.amount += parseInt(product.cost_in_credits);
+  increaseAmount(product: CartItemProps) {
+    this.cart.amount += parseInt(product.product.cost_in_credits);
   }
 
-  addToCart(product: IVehicle) {
+  addToCart(product: CartItemProps) {
     this.cart.products.push(product);
     this.increaseAmount(product);
   }
 
-  removeFromCart(product: IVehicle) {
-    this.cart.products.filter(cartProduct => cartProduct.name !== product.name);
+  removeFromCart(product: CartItemProps) {
+    this.cart.products.filter(cartProduct => cartProduct.product.name !== product.product.name);
   }
 }
 
