@@ -7,8 +7,9 @@ import { BuyButton } from "../../components/Button";
 import { ItemsWrapper } from "../../components/ItemsWrapper";
 import { useStore } from "../../hooks/useStore";
 import { CartItemProps, IVehicle } from "../../types/Vehicle";
+import { observer } from "mobx-react-lite";
 
-export default function Cart() {
+const Cart = observer(() => {
   const {
     cart: { products, amount }
   } = useStore();
@@ -29,4 +30,6 @@ export default function Cart() {
       </CartCard>
     </CartWrapper>
   );
-}
+});
+
+export default Cart;
