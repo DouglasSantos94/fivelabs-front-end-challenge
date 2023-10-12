@@ -1,12 +1,17 @@
 import { RemoveFromCartButton } from "../../../components/Button";
 import { SmallParagraph } from "../../../components/Text";
+import { IVehicle } from "../../../types/Vehicle";
 import { CartItemWrapper } from "./styles";
 
-export default function CartItem() {
+interface ICartItemProps {
+  product: IVehicle;
+}
+
+export default function CartItem({ product: { name, cost_in_credits: costInCredits } }: ICartItemProps) {
   return (
     <CartItemWrapper>
-      <SmallParagraph>Produto: Sand Crawler</SmallParagraph>
-      <SmallParagraph>Valor: 260000</SmallParagraph>
+      <SmallParagraph>Produto: {name}</SmallParagraph>
+      <SmallParagraph>Valor: {costInCredits}</SmallParagraph>
       <RemoveFromCartButton>Remover</RemoveFromCartButton>
     </CartItemWrapper>
   );
