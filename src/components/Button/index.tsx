@@ -4,7 +4,16 @@ import {
   AddToCartButton,
   RemoveFromCartButton,
   BuyButton,
-  FinishButton
+  FinishButton,
+  SubmitPaymentButton
 } from "./styles";
 
-export { SearchItemsButton, SearchAddressButton, AddToCartButton, RemoveFromCartButton, BuyButton, FinishButton };
+export {
+  SearchItemsButton,
+  SearchAddressButton,
+  AddToCartButton,
+  RemoveFromCartButton,
+  BuyButton,
+  FinishButton,
+  SubmitPaymentButton
+};
