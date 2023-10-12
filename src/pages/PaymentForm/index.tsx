@@ -115,14 +115,16 @@ export default function PaymentForm() {
           </SmallFormDividerWrapper>
           <FormDividerWrapper>
             <FormItem>
-              <Label htmlFor="street">Rua</Label>
-              <FormInput
-                type="text"
-                id="street"
-                name="street"
-                onChange={formik.handleChange}
-                value={formik.values.street}
-              />
+              <Label htmlFor="street">
+                Rua
+                <FormInput
+                  type="text"
+                  id="street"
+                  name="street"
+                  onChange={formik.handleChange}
+                  value={formik.values.street}
+                />
+              </Label>
             </FormItem>
             <SmallFormItem>
               <Label htmlFor="number">
