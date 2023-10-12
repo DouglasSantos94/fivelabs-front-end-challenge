@@ -10,7 +10,7 @@ export const SearchInputWrapper = styled(InputWrapper)`
   height: 30px;
 `;
 
-export const FormInput = styled(Field)`
+export const FormInput = styled.input`
   border-radius: 4px;
   border: none;
   width: 80%;
