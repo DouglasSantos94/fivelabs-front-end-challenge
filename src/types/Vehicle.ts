@@ -12,3 +12,7 @@ export interface IVehicle {
   consumables: string;
   url: string;
 }
+
+export type VehicleProps = {
+  id: string;
+} & IVehicle;
