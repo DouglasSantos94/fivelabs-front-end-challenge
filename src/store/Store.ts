@@ -17,12 +17,19 @@ class Store {
       cart: observable,
       addToCart: action,
       removeFromCart: action,
-      increaseAmount: action
+      increaseAmount: action,
+      decreaseAmount: action
     });
   }
 
   increaseAmount(product: CartItemProps) {
-    this.cart.amount += parseInt(product.product.cost_in_credits);
+    this.cart.amount =
+      this.cart.amount + (product.product.cost_in_credits == "unknown" ? 0 : parseInt(product.product.cost_in_credits));
+  }
+
+  decreaseAmount(product: CartItemProps) {
+    this.cart.amount =
+      this.cart.amount - (product.product.cost_in_credits == "unknown" ? 0 : parseInt(product.product.cost_in_credits));
   }
 
   addToCart(product: CartItemProps) {
@@ -31,7 +38,9 @@ class Store {
   }
 
   removeFromCart(id: string) {
+    const product: CartItemProps = this.cart.products.find(product => product.id === id);
     this.cart.products = this.cart.products.filter(cartProduct => cartProduct.id !== id);
+    this.decreaseAmount(product);
   }
 }
 
