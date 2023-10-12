@@ -1,15 +1,15 @@
 import { Link, useParams } from "react-router-dom";
-import { VehicleDetailCard } from "../../components/Card/styles";
-import { useVehicle } from "../../hooks/useVehicle";
 import { VehicleDetailInfo, VehicleDetailWrapper } from "./styles";
+import { VehicleDetailCard } from "../../components/Card/styles";
 import { Paragraph, Title } from "../../components/Text";
 import { AddToCartButton } from "../../components/Button/styles";
-import store from "../../store/Store";
+import { useVehicle } from "../../hooks/useVehicle";
+import { useStore } from "../../hooks/useStore";
 
 export default function VehicleDetail() {
   const { id } = useParams();
   const { vehicle } = useVehicle(id);
-
+  const { addToCart } = useStore();
   const {
     name,
     model,
@@ -41,7 +41,7 @@ export default function VehicleDetail() {
             <Paragraph>Capacidade de carga: {cargoCapacity}</Paragraph>
             <Paragraph>Tempo de viagem: {consumables}</Paragraph>
           </VehicleDetailInfo>
-          <AddToCartButton onClick={() => store.addToCart(vehicle)}>Adicionar ao carrinho</AddToCartButton>
+          <AddToCartButton onClick={() => addToCart(vehicle)}>Adicionar ao carrinho</AddToCartButton>
         </VehicleDetailCard>
       )}
     </VehicleDetailWrapper>
