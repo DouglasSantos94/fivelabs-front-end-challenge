@@ -8,20 +8,19 @@ import { FormItem, MediumFormItem, SmallFormItem } from "../../components/FormIt
 import { SearchAddressButton, SubmitPaymentButton } from "../../components/Button";
 import { Label } from "../../components/Label";
 import { FormInput, SmallFormInput } from "../../components/Input";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCep } from "../../hooks/useCep";
 
 export default function PaymentForm() {
   const [cep, setCep] = useState("");
-  const { address } = useCep(cep);
 
   const formik = useFormik({
     initialValues: {
       name: "",
+      cpf: "",
       email: "",
       phoneNumber: "",
-      cpf: "",
-      zipCode: "",
+      cep: "",
       street: "",
       number: "",
       complement: "",
@@ -33,9 +32,24 @@ export default function PaymentForm() {
       valid: "",
       code: ""
     },
+    initialErrors: {},
     onSubmit: values => console.log(values),
-    validationSchema: formSchema
+    validationSchema: formSchema,
+    enableReinitialize: true
   });
+
+  const { address, error } = useCep(cep);
+
+  useEffect(() => {
+    const changeAddressValues = async () => {
+      await formik.setFieldValue("street", address.logradouro);
+      await formik.setFieldValue("complement", address.complemento);
+      await formik.setFieldValue("neighborhood", address.bairro);
+      await formik.setFieldValue("city", address.localidade);
+      await formik.setFieldValue("state", address.uf);
+    };
+    void changeAddressValues();
+  }, [address]);
 
   return (
     <PaymentFormWrapper>
@@ -92,31 +106,23 @@ export default function PaymentForm() {
           </FormDividerWrapper>
           <SmallFormDividerWrapper>
             <SmallFormItem>
-              <Label htmlFor="zipCode">
+              <Label htmlFor="cep">
                 CEP
-                <FormInput
-                  type="text"
-                  id="zipCode"
-                  name="zipCode"
-                  onChange={formik.handleChange}
-                  value={formik.values.zipCode}
-                />
+                <FormInput type="text" id="cep" name="cep" onChange={formik.handleChange} value={formik.values.cep} />
               </Label>
             </SmallFormItem>
-            <SearchAddressButton onClick={() => setCep(formik.values.zipCode)}>Buscar</SearchAddressButton>
+            <SearchAddressButton onClick={() => setCep(formik.values.cep)}>Buscar</SearchAddressButton>
           </SmallFormDividerWrapper>
           <FormDividerWrapper>
             <FormItem>
-              <Label htmlFor="street">
-                Rua
-                <FormInput
-                  type="text"
-                  id="street"
-                  name="street"
-                  onChange={formik.handleChange}
-                  value={address.logradouro ?? formik.values.street}
-                />
-              </Label>
+              <Label htmlFor="street">Rua</Label>
+              <FormInput
+                type="text"
+                id="street"
+                name="street"
+                onChange={formik.handleChange}
+                value={formik.values.street}
+              />
             </FormItem>
             <SmallFormItem>
               <Label htmlFor="number">
@@ -138,7 +144,7 @@ export default function PaymentForm() {
                   id="complement"
                   name="complement"
                   onChange={formik.handleChange}
-                  value={address.complemento ?? formik.values.complement}
+                  value={formik.values.complement}
                 />
               </Label>
             </MediumFormItem>
@@ -152,7 +158,7 @@ export default function PaymentForm() {
                   id="neighborhood"
                   name="neighborhood"
                   onChange={formik.handleChange}
-                  value={address.bairro ?? formik.values.neighborhood}
+                  value={formik.values.neighborhood}
                 />
               </Label>
             </FormItem>
@@ -164,7 +170,7 @@ export default function PaymentForm() {
                   id="city"
                   name="city"
                   onChange={formik.handleChange}
-                  value={address.localidade ?? formik.values.city}
+                  value={formik.values.city}
                 />
               </Label>
             </MediumFormItem>
@@ -176,7 +182,7 @@ export default function PaymentForm() {
                   id="state"
                   name="state"
                   onChange={formik.handleChange}
-                  value={address.uf ?? formik.values.state}
+                  value={formik.values.state}
                 />
               </Label>
             </SmallFormItem>
