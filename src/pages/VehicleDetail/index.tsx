@@ -4,6 +4,7 @@ import { useVehicle } from "../../hooks/useVehicle";
 import { VehicleDetailInfo, VehicleDetailWrapper } from "./styles";
 import { Paragraph, Title } from "../../components/Text";
 import { AddToCartButton } from "../../components/Button/styles";
+import store from "../../store/Store";
 
 export default function VehicleDetail() {
   const { id } = useParams();
@@ -40,7 +41,7 @@ export default function VehicleDetail() {
             <Paragraph>Capacidade de carga: {cargoCapacity}</Paragraph>
             <Paragraph>Tempo de viagem: {consumables}</Paragraph>
           </VehicleDetailInfo>
-          <AddToCartButton>Adicionar ao carrinho</AddToCartButton>
+          <AddToCartButton onClick={() => store.addToCart(vehicle)}>Adicionar ao carrinho</AddToCartButton>
         </VehicleDetailCard>
       )}
     </VehicleDetailWrapper>

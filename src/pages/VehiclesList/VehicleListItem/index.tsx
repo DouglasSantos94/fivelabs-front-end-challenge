@@ -3,14 +3,14 @@ import { VehicleCard } from "../../../components/Card/styles";
 import { Paragraph, Title } from "../../../components/Text";
 import { IVehicle } from "../../../types/Vehicle";
 import { SeeDetailsButton, VehicleActions, VehicleInfo, VehicleListItemWrapper } from "./styles";
+import store from "../../../store/Store";
 
 interface IVehicleListItemProps {
   vehicle: IVehicle;
 }
 
-export default function VehicleListItem({
-  vehicle: { name, model, cost_in_credits: costInCredits, url }
-}: IVehicleListItemProps) {
+export default function VehicleListItem({ vehicle }: IVehicleListItemProps) {
+  const { name, model, cost_in_credits: costInCredits, url } = vehicle;
   const id = url.charAt(url.length - 2);
 
   return (
@@ -24,7 +24,7 @@ export default function VehicleListItem({
 
         <VehicleActions>
           <SeeDetailsButton to={`/detail/${id}`}>Ver detalhes</SeeDetailsButton>
-          <AddToCartButton>Adicionar ao carrinho</AddToCartButton>
+          <AddToCartButton onClick={() => store.addToCart(vehicle)}>Adicionar ao carrinho</AddToCartButton>
         </VehicleActions>
       </VehicleCard>
     </VehicleListItemWrapper>
