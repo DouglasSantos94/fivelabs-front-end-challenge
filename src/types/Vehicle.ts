@@ -13,6 +13,6 @@ export interface IVehicle {
   url: string;
 }
 
-export type VehicleProps = {
+export type CartItemProps = {
   id: string;
 } & IVehicle;

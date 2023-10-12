@@ -1,18 +1,15 @@
 import { useCallback, useEffect, useState } from "react";
 import { getVehicles } from "../services/SwApi";
-import { VehicleProps } from "../types/Vehicle";
-import { useId } from "./useId";
+import { IVehicle } from "../types/Vehicle";
 
 export const useVehicles = () => {
-  const [vehicles, setVehicles] = useState<VehicleProps[]>();
+  const [vehicles, setVehicles] = useState<IVehicle[]>();
   const [error, setError] = useState<Error | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  const { addVehicleId } = useId();
-
   const fetcher = useCallback(() => {
     getVehicles()
-      .then(({ data: { results } }) => setVehicles(addVehicleId(results)))
+      .then(({ data: { results } }) => setVehicles(results))
       .catch((err: Error) => setError(err))
       .finally(() => setIsLoading(false));
   }, []);

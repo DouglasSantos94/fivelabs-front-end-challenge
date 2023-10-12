@@ -20,7 +20,7 @@ export default function Cart() {
       <CartCard>
         <ItemsWrapper>
           <Title>Carrinho</Title>
-          {products && products.map((product: IVehicle) => <CartItem product={product} />)}
+          {products && products.map((product: IVehicle, i: number) => <CartItem key={i} product={product} />)}
         </ItemsWrapper>
         <BuyButton to={"/form"}>Finalizar compra</BuyButton>
       </CartCard>
