@@ -23,6 +23,7 @@ export default function VehicleDetail() {
     cargo_capacity: cargoCapacity,
     consumables
   } = vehicle;
+
   return (
     <VehicleDetailWrapper>
       <Link to={"/"}>Voltar</Link>
