@@ -15,4 +15,5 @@ export interface IVehicle {
 
 export type CartItemProps = {
   id: string;
-} & IVehicle;
+  product: IVehicle;
+};
