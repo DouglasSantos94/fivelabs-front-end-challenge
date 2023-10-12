@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { getVehicle } from "../services/Api";
+import { getVehicle } from "../services/SwApi";
 import { IVehicle } from "../types/Vehicle";
 
 export const useVehicle = (id = "") => {

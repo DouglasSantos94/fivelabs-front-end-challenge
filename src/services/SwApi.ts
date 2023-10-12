@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 
-const Api = axios.create({
+const SwApi = axios.create({
   baseURL: "https://swapi.dev/api",
   headers: {
     Accept: "application/json"
@@ -8,9 +8,9 @@ const Api = axios.create({
 });
 
 export const getVehicles = (): Promise<AxiosResponse> => {
-  return Api.get("/vehicles/");
+  return SwApi.get("/vehicles/");
 };
 
 export const getVehicle = (id: string): Promise<AxiosResponse> => {
-  return Api.get(`/vehicles/${id}`);
+  return SwApi.get(`/vehicles/${id}`);
 };
