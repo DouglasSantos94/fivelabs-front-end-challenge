@@ -5,4 +5,5 @@ export const ItemsWrapper = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 20px;
 `;

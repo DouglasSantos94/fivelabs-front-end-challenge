@@ -12,3 +12,8 @@ export interface IVehicle {
   consumables: string;
   url: string;
 }
+
+export type CartItemProps = {
+  id: string;
+  product: IVehicle;
+};
