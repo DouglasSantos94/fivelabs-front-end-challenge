@@ -4,6 +4,12 @@ import styled from "styled-components";
 const Button = styled.button`
   border-radius: 4px;
   border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out 0.3s;
+
+  &:hover {
+    background-color: #3a3f44;
+  }
 `;
 
 export const SearchItemsButton = styled(Button)`
