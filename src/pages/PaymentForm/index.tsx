@@ -50,6 +50,7 @@ export default function PaymentForm() {
   const submit = values => {
     store.saveSummary({
       ...values,
+      cart: store.cart,
       paymentType: values.cardNumber ? "card" : "slip"
     });
     return navigate("/summary");

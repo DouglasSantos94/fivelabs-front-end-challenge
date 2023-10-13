@@ -10,7 +10,7 @@ class Store {
   };
 
   purchaseSummary: PurchaseSummary = {
-    ...this.cart,
+    cart: this.cart,
     name: "",
     email: "",
     phoneNumber: "",
