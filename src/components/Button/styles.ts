@@ -42,6 +42,10 @@ export const BuyButton = styled(Link)`
   margin-top: 50px;
 `;
 
+export const BackButton = styled(BuyButton)`
+  background-color: #5b6066;
+`;
+
 export const SearchAddressButton = styled(Button)`
   background-color: #1e1e1e;
   padding: 8px;

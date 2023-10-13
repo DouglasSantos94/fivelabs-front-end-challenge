@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { VehicleDetailInfo, VehicleDetailWrapper } from "./styles";
 import { VehicleDetailCard } from "../../components/Card/styles";
 import { Paragraph, Title } from "../../components/Text";
-import { AddToCartButton } from "../../components/Button/styles";
+import { AddToCartButton, BackButton } from "../../components/Button";
 import { useVehicle } from "../../hooks/useVehicle";
 import { useStore } from "../../hooks/useStore";
 
@@ -26,7 +26,9 @@ export default function VehicleDetail() {
 
   return (
     <VehicleDetailWrapper>
-      <Link to={"/"}>Voltar</Link>
+      <div style={{ width: "90%", marginBottom: "40px" }}>
+        <BackButton to={"/"}>Voltar</BackButton>
+      </div>
       {vehicle && (
         <VehicleDetailCard>
           <VehicleDetailInfo>

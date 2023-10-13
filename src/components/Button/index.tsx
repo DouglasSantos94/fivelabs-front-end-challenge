@@ -5,7 +5,8 @@ import {
   RemoveFromCartButton,
   BuyButton,
   FinishButton,
-  SubmitPaymentButton
+  SubmitPaymentButton,
+  BackButton
 } from "./styles";
 
 export {
@@ -15,5 +16,6 @@ export {
   RemoveFromCartButton,
   BuyButton,
   FinishButton,
-  SubmitPaymentButton
+  SubmitPaymentButton,
+  BackButton
 };

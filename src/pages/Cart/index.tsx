@@ -3,7 +3,7 @@ import { CartCard } from "../../components/Card";
 import { Paragraph, Title } from "../../components/Text";
 import CartItem from "./CartItem";
 import { CartWrapper } from "./styles";
-import { BuyButton } from "../../components/Button";
+import { BackButton, BuyButton } from "../../components/Button";
 import { ItemsWrapper } from "../../components/ItemsWrapper";
 import { useStore } from "../../hooks/useStore";
 import { CartItemProps } from "../../types/Vehicle";
@@ -16,7 +16,9 @@ const Cart = observer(() => {
 
   return (
     <CartWrapper>
-      <Link to={"/"}>Voltar</Link>
+      <div style={{ width: "80%", marginBottom: "40px" }}>
+        <BackButton to={"/"}>Voltar</BackButton>
+      </div>
 
       <CartCard>
         <ItemsWrapper>
