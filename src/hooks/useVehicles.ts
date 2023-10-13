@@ -3,7 +3,7 @@ import { getVehicles } from "../services/SwApi";
 import { IVehicle } from "../types/Vehicle";
 
 export const useVehicles = () => {
-  const [vehicles, setVehicles] = useState<IVehicle[]>();
+  const [vehicles, setVehicles] = useState<IVehicle[]>([]);
   const [error, setError] = useState<Error | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
