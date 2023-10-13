@@ -5,10 +5,11 @@ import { Paragraph, Title } from "../../components/Text";
 import { AddToCartButton, BackButton } from "../../components/Button";
 import { useVehicle } from "../../hooks/useVehicle";
 import { useStore } from "../../hooks/useStore";
+import { Oval } from "react-loader-spinner";
 
 export default function VehicleDetail() {
   const { id } = useParams();
-  const { vehicle } = useVehicle(id);
+  const { vehicle, isLoading } = useVehicle(id);
   const { addToCart } = useStore();
   const {
     name,
@@ -29,7 +30,21 @@ export default function VehicleDetail() {
       <div style={{ width: "90%", marginBottom: "40px" }}>
         <BackButton to={"/"}>Voltar</BackButton>
       </div>
-      {vehicle && (
+      {isLoading && (
+        <Oval
+          height={300}
+          width={400}
+          color="#5b6066"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+          ariaLabel="oval-loading"
+          secondaryColor="#ccc"
+          strokeWidth={2}
+          strokeWidthSecondary={2}
+        />
+      )}
+      {!isLoading && (
         <VehicleDetailCard>
           <VehicleDetailInfo>
             <Title>{name}</Title>
