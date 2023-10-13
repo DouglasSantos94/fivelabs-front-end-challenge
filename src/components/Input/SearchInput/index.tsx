@@ -1,5 +1,10 @@
+import { ChangeEventHandler } from "react";
 import { SearchInputWrapper } from "../styles";
 
-export default function SearchInput() {
-  return <SearchInputWrapper />;
+interface ISearchInputProps {
+  filter: ChangeEventHandler;
+}
+
+export default function SearchInput({ filter }: ISearchInputProps) {
+  return <SearchInputWrapper onChange={filter} placeholder="Busque por nome ou modelo" />;
 }
