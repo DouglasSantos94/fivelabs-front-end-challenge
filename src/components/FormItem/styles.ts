@@ -7,7 +7,7 @@ export const FormItem = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-start;
 
   @media screen and (min-width: 720px) {
