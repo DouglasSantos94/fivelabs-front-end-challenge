@@ -6,11 +6,13 @@ export const VehiclesListWrapper = styled.ul`
   flex-direction: column;
   align-items: center;
   margin-top: 50px;
+  padding: 0 20px;
+  box-sizing: border-box;
 
   @media screen and (min-width: 500px) {
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
     justify-content: space-evenly;
   }
 `;

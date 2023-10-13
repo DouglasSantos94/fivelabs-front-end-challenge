@@ -6,6 +6,9 @@ export const VehicleListItemWrapper = styled.li`
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  @media screen and (min-width: 720px) {
+    width: 300px;
+  }
 `;
 
 export const VehicleInfo = styled.div`

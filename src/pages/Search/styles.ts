@@ -7,4 +7,5 @@ export const SearchWrapper = styled.div`
   align-items: center;
   gap: 5px;
   padding-top: 20px;
+  margin-bottom: 30px;
 `;
