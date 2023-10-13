@@ -22,7 +22,6 @@ export default function PurchaseSummary() {
     }
   } = Store;
 
-  console.log(buyerName, street);
   return (
     <PurchaseSummaryWrapper>
       <SummaryCard>
