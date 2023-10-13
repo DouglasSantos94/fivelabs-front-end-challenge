@@ -1,8 +1,20 @@
 import * as Yup from "yup";
+import { cpf } from "cpf-cnpj-validator";
 
 export const formSchema = Yup.object().shape({
   name: Yup.string().required("Nome é obrigatório"),
-  cpf: Yup.string().required("CPF é obrigatório"),
+  cpf: Yup.string()
+    .test({
+      name: "cpf-valid",
+      skipAbsent: true,
+      test(value = "", ctx) {
+        if (!cpf.isValid(value)) {
+          return ctx.createError({ message: "CPF inválido!" });
+        }
+        return true;
+      }
+    })
+    .required("CPF é obrigatório"),
   email: Yup.string().email("Digite um e-mail válido").required("E-mail é obrigatório"),
   phoneNumber: Yup.string().required("Telefone é obrigatório"),
   cep: Yup.string().required("Digite o seu CEP"),
