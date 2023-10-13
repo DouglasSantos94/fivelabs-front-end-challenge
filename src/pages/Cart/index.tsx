@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { CartCard } from "../../components/Card";
 import { Paragraph, Title } from "../../components/Text";
 import CartItem from "./CartItem";
@@ -8,6 +7,7 @@ import { ItemsWrapper } from "../../components/ItemsWrapper";
 import { useStore } from "../../hooks/useStore";
 import { CartItemProps } from "../../types/Vehicle";
 import { observer } from "mobx-react-lite";
+import EmptyCart from "./EmptyCart";
 
 const Cart = observer(() => {
   const {
@@ -21,15 +21,20 @@ const Cart = observer(() => {
       </div>
 
       <CartCard>
-        <ItemsWrapper>
-          <Title>Carrinho</Title>
-          {products &&
-            products.map((cartItem: CartItemProps, i: number) => (
-              <CartItem key={i} product={cartItem.product} id={cartItem.id} />
-            ))}
-        </ItemsWrapper>
-        <Paragraph>Total: {amount}</Paragraph>
-        <BuyButton to={"/form"}>Finalizar compra</BuyButton>
+        {products.length === 0 && <EmptyCart />}
+        {products.length > 0 && (
+          <>
+            <ItemsWrapper>
+              <Title>Carrinho</Title>
+              {products &&
+                products.map((cartItem: CartItemProps, i: number) => (
+                  <CartItem key={i} product={cartItem.product} id={cartItem.id} />
+                ))}
+            </ItemsWrapper>
+            <Paragraph>Total: {amount}</Paragraph>
+            <BuyButton to={"/form"}>Finalizar compra</BuyButton>
+          </>
+        )}
       </CartCard>
     </CartWrapper>
   );
