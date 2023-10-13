@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import { PaymentFormCard } from "../../components/Card";
-import { Paragraph, Title } from "../../components/Text";
+import { Paragraph, SmallParagraph, Title } from "../../components/Text";
 import { PaymentFormWrapper } from "./styles";
 import { formSchema } from "../../schemas/formSchema";
 import { FormDividerWrapper, SmallFormDividerWrapper } from "../../components/FormDivider";
@@ -201,63 +201,72 @@ export default function PaymentForm() {
             </SmallFormItem>
           </FormDividerWrapper>
           <Paragraph>Dados de pagamento</Paragraph>
-          <FormDividerWrapper>
-            <FormItem>
-              <Label htmlFor="cardNumber">
-                Nº do cartão
-                <FormInput
-                  type="text"
-                  id="cardNumber"
-                  name="cardNumber"
-                  onChange={formik.handleChange}
-                  value={formik.values.cardNumber}
-                />
-              </Label>
-              {formik.errors.cardNumber ? <FormError>{formik.errors.cardNumber}</FormError> : null}
-            </FormItem>
-            <FormItem>
-              <Label htmlFor="owner">
-                Titular
-                <FormInput
-                  type="text"
-                  id="owner"
-                  name="owner"
-                  onChange={formik.handleChange}
-                  value={formik.values.owner}
-                />
-              </Label>
-              {formik.errors.owner ? <FormError>{formik.errors.owner}</FormError> : null}
-            </FormItem>
-          </FormDividerWrapper>
-          <FormDividerWrapper>
-            <SmallFormItem>
-              <Label htmlFor="valid">
-                Validade
-                <SmallFormInput
-                  type="text"
-                  id="valid"
-                  name="valid"
-                  onChange={formik.handleChange}
-                  value={formik.values.valid}
-                />
-              </Label>
-              {formik.errors.valid ? <FormError>{formik.errors.valid}</FormError> : null}
-            </SmallFormItem>
-            <SmallFormItem>
-              <Label htmlFor="code">
-                CVV
-                <SmallFormInput
-                  type="text"
-                  id="code"
-                  name="code"
-                  onChange={formik.handleChange}
-                  value={formik.values.code}
-                />
-              </Label>
-              {formik.errors.code ? <FormError>{formik.errors.code}</FormError> : null}
-            </SmallFormItem>
-          </FormDividerWrapper>
-          <SubmitPaymentButton type="submit">Finalizar compra</SubmitPaymentButton>
+          <div style={{ marginTop: "20px" }}>
+            <SmallParagraph style={{ marginBottom: "10px" }}>Pagar com cartão de crédito</SmallParagraph>
+            <FormDividerWrapper>
+              <FormItem>
+                <Label htmlFor="cardNumber">
+                  Nº do cartão
+                  <FormInput
+                    type="text"
+                    id="cardNumber"
+                    name="cardNumber"
+                    onChange={formik.handleChange}
+                    value={formik.values.cardNumber}
+                  />
+                </Label>
+                {formik.errors.cardNumber ? <FormError>{formik.errors.cardNumber}</FormError> : null}
+              </FormItem>
+              <FormItem>
+                <Label htmlFor="owner">
+                  Titular
+                  <FormInput
+                    type="text"
+                    id="owner"
+                    name="owner"
+                    onChange={formik.handleChange}
+                    value={formik.values.owner}
+                  />
+                </Label>
+                {formik.errors.owner ? <FormError>{formik.errors.owner}</FormError> : null}
+              </FormItem>
+            </FormDividerWrapper>
+            <FormDividerWrapper>
+              <SmallFormItem>
+                <Label htmlFor="valid">
+                  Validade
+                  <SmallFormInput
+                    type="text"
+                    id="valid"
+                    name="valid"
+                    onChange={formik.handleChange}
+                    value={formik.values.valid}
+                  />
+                </Label>
+                {formik.errors.valid ? <FormError>{formik.errors.valid}</FormError> : null}
+              </SmallFormItem>
+              <SmallFormItem>
+                <Label htmlFor="code">
+                  CVV
+                  <SmallFormInput
+                    type="text"
+                    id="code"
+                    name="code"
+                    onChange={formik.handleChange}
+                    value={formik.values.code}
+                  />
+                </Label>
+                {formik.errors.code ? <FormError>{formik.errors.code}</FormError> : null}
+              </SmallFormItem>
+            </FormDividerWrapper>
+          </div>
+          <SubmitPaymentButton type="submit">Finalizar pedido com cartão de crédito</SubmitPaymentButton>
+          <div style={{ marginTop: "30px", borderTop: "solid 2px #4b4b4b" }}>
+            <SmallParagraph style={{ marginBottom: "20px", marginTop: "10px" }}>
+              Pagar com boleto bancário
+            </SmallParagraph>
+            <SubmitPaymentButton type="submit">Finalizar pedido com boleto bancário</SubmitPaymentButton>
+          </div>
         </form>
       </PaymentFormCard>
     </PaymentFormWrapper>

@@ -35,6 +35,8 @@ export const SummaryCard = styled(CartCard)``;
 
 export const PaymentFormCard = styled(CartCard)`
   width: 400px;
+  margin-bottom: 20px;
+  margin-top: 50px;
 
   @media screen and (min-width: 500px) {
     width: 70%;
