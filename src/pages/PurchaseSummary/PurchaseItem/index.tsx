@@ -1,11 +1,12 @@
 import { ItemWrapper } from "../../../components/ItemWrapper";
 import { SmallParagraph } from "../../../components/Text";
+import { CartItemProps } from "../../../types/Vehicle";
 
-export default function PurchaseItem() {
+export default function PurchaseItem({ product: { name, cost_in_credits: costInCredits } }: CartItemProps) {
   return (
     <ItemWrapper>
-      <SmallParagraph>Produto: Sand Crawler</SmallParagraph>
-      <SmallParagraph>Valor: 260000</SmallParagraph>
+      <SmallParagraph>Produto: {name}</SmallParagraph>
+      <SmallParagraph>Valor: {costInCredits}</SmallParagraph>
     </ItemWrapper>
   );
 }

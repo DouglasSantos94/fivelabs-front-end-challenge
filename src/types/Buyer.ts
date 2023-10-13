@@ -1,11 +1,18 @@
-import { Address } from "./Address";
-import { Payment } from "./Payment";
-
 export type Buyer = {
   name: string;
   email: string;
   phoneNumber: string;
   cpf: string;
-  address: Address;
-  paymentData: Payment;
+  cep: string;
+  street: string;
+  number: string;
+  complement: string;
+  neighborhood: string;
+  city: string;
+  state: string;
+  cardNumber: string;
+  owner: string;
+  valid: string;
+  code: string;
+  slipCode: string;
 };

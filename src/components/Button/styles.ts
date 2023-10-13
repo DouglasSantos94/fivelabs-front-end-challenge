@@ -58,4 +58,7 @@ export const SubmitPaymentButton = styled(Button)`
   background-color: #1e1e1e;
   padding: 8px;
   color: white;
+  &:disabled {
+    background-color: #787878;
+  }
 `;

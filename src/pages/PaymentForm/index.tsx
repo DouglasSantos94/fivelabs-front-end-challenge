@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { useFormik } from "formik";
 import { PaymentFormCard } from "../../components/Card";
 import { Paragraph, SmallParagraph, Title } from "../../components/Text";
@@ -11,9 +13,12 @@ import { FormInput, SmallFormInput } from "../../components/Input";
 import { useEffect, useState } from "react";
 import { useCep } from "../../hooks/useCep";
 import { FormError } from "../../components/FormError";
+import store from "../../store/Store";
+import { redirect, useNavigate } from "react-router";
 
 export default function PaymentForm() {
   const [cep, setCep] = useState("");
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -31,15 +36,24 @@ export default function PaymentForm() {
       cardNumber: "",
       owner: "",
       valid: "",
-      code: ""
+      code: "",
+      slip: "",
+      paymentType: ""
     },
     initialErrors: {},
-    onSubmit: values => console.log(values),
+    onSubmit: values => submit(values),
     validationSchema: formSchema,
     enableReinitialize: true
   });
 
   const { address, error } = useCep(cep);
+  const submit = values => {
+    store.saveSummary({
+      ...values,
+      paymentType: values.cardNumber ? "card" : "slip"
+    });
+    return navigate("/summary");
+  };
 
   useEffect(() => {
     const changeAddressValues = async () => {
@@ -56,7 +70,7 @@ export default function PaymentForm() {
     <PaymentFormWrapper>
       <PaymentFormCard>
         <Title>Formulário de pagamento</Title>
-        <form style={{ textAlign: "center" }} onSubmit={formik.handleSubmit}>
+        <form onSubmit={formik.handleSubmit} style={{ textAlign: "center" }}>
           <Paragraph>Dados pessoais</Paragraph>
           <FormDividerWrapper>
             <FormItem>
@@ -260,7 +274,17 @@ export default function PaymentForm() {
               </SmallFormItem>
             </FormDividerWrapper>
           </div>
-          <SubmitPaymentButton type="submit">Finalizar pedido com cartão de crédito</SubmitPaymentButton>
+          <SubmitPaymentButton
+            type="submit"
+            disabled={
+              formik.values.cardNumber == "" ||
+              formik.values.owner == "" ||
+              formik.values.valid == "" ||
+              formik.values.code == ""
+            }
+          >
+            Finalizar pedido com cartão de crédito
+          </SubmitPaymentButton>
           <div style={{ marginTop: "30px", borderTop: "solid 2px #4b4b4b" }}>
             <SmallParagraph style={{ marginBottom: "20px", marginTop: "10px" }}>
               Pagar com boleto bancário
